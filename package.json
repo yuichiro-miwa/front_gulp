@@ -22,6 +22,7 @@
     "gulp-remember": "^0.3.1",
     "gulp-sass": "^3.0.0",
     "gulp-using": "^0.1.1",
-    "require-dir": "^0.3.1"
+    "require-dir": "^0.3.1",
+    "xo": "^0.17.1"
   }
 }
