@@ -1,30 +1,30 @@
-//base
+// base
 import gulp from 'gulp';
 import browser from 'browser-sync';
 
-//css
+// css
 import scss from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
 import csscomb from 'gulp-csscomb';
 
-//error
+// error
 import plumber from 'gulp-plumber';
 
-//etc
+// etc
 import using from 'gulp-using';
 import cached from 'gulp-cached';
 import remember from 'gulp-remember';
 
-//path
+// path
 import config from '../config.json';
 
 // setting path
-const input_src = config.root.src + '/scss/**/*.scss',
-      dist_src = config.root.dist + '/common/css/';
+const inputSrc = config.root.src + '/scss/**/*.scss',
+      distSrc = config.root.dist + '/common/css/';
 
 // autoprefixer options
 const autoprefixer_options = {
-      //対象ブラウザは適時記述
+      // 対象ブラウザは適時記述
       browsers: [
         'last 2 versions',
       ],
@@ -33,7 +33,7 @@ const autoprefixer_options = {
 };
 
 gulp.task('scss', () => {
-  gulp.src(input_src)
+  gulp.src(inputSrc)
       .pipe(plumber({
             errorHandler: (err) => {
                 console.log(err.messageFormatted);
@@ -46,7 +46,6 @@ gulp.task('scss', () => {
       .pipe(remember())
       .pipe(autoprefixer(autoprefixer_options))
       .pipe(csscomb())
-      .pipe(gulp.dest(dist_src))
-      .pipe(browser.reload({stream: true}))
+      .pipe(gulp.dest(distSrc))
+      .pipe(browser.reload({stream: true}));
 });
-                

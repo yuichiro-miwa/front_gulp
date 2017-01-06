@@ -1,15 +1,15 @@
-//base
+// base
 import gulp from 'gulp';
 import browser from 'browser-sync';
 
-//path
+// path
 import config from '../config.json';
 
 // setting path
-const input_src = config.root.src + '/**/*.html';
+const inputSrc = config.root.src + '/**/*.html';
 
 gulp.task('copy_html', () => {
-    gulp.src(input_src)
+    gulp.src(inputSrc)
       .pipe(gulp.dest(config.root.dist + '/'))
-      .pipe(browser.reload({stream: true}))
-})
+      .pipe(browser.reload({stream: true}));
+});

@@ -1,8 +1,7 @@
-//base
+// base
 import gulp from 'gulp';
-import browser from 'browser-sync';
 
-//path
+// path
 import requireDir from 'require-dir';
 import config from './config.json';
 
