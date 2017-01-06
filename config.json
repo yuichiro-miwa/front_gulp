@@ -1,0 +1,6 @@
+{
+  "root": {
+    "src": "./dev",
+    "dist": "./public"
+  }
+}
