@@ -4,6 +4,7 @@ import browser from 'browser-sync';
 
 // css
 import scss from 'gulp-sass';
+// browserslistを使用 => package.json
 import autoprefixer from 'gulp-autoprefixer';
 import csscomb from 'gulp-csscomb';
 
@@ -22,16 +23,6 @@ import config from '../config.json';
 const inputSrc = config.root.src + '/scss/**/*.scss',
       distSrc = config.root.dist + '/common/css/';
 
-// autoprefixer options
-const autoprefixer_options = {
-      // 対象ブラウザは適時記述
-      browsers: [
-        'last 2 versions',
-      ],
-      // cssの整形に関して
-      cascade: false
-};
-
 gulp.task('scss', () => {
   gulp.src(inputSrc)
       .pipe(plumber({
@@ -44,7 +35,7 @@ gulp.task('scss', () => {
       .pipe(using())
       .pipe(scss())
       .pipe(remember())
-      .pipe(autoprefixer(autoprefixer_options))
+      .pipe(autoprefixer({cascade: false}))
       .pipe(csscomb())
       .pipe(gulp.dest(distSrc))
       .pipe(browser.reload({stream: true}));
