@@ -8,7 +8,7 @@ import config from '../config.json';
 gulp.task('server', () => {
   browser({
     server: {
-      baseDir: config.root.dest
+      baseDir: config.root.dist
     }
   });
 });
